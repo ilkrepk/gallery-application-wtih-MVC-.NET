@@ -41,20 +41,20 @@ namespace GaleriUygulaması.Controllers
                 {
                     Session["value"] = ByteBirlestir((byte[])Session["value"], value);
                 }
-            }
-            if (10000 > file.ContentLength)
-            {
-                context.Dosya.Add(new Dosya
+                if (10000 > file.ContentLength)
                 {
-                    Deger = (byte[])Session["value"],
-                    DosyaAdi = file.FileName,
-                    DosyaBoyutu = ((byte[])Session["value"]).Length.ToString(),
-                    DosyaTipi = file.ContentType,
-                    KayitTarihi = DateTime.Now,
+                    context.Dosya.Add(new Dosya
+                    {
+                        Deger = (byte[])Session["value"],
+                        DosyaAdi = file.FileName,
+                        DosyaBoyutu = ((byte[])Session["value"]).Length.ToString(),
+                        DosyaTipi = file.ContentType,
+                        KayitTarihi = DateTime.Now,
 
-                });
-                context.SaveChanges();
-                Session["value"] = null;
+                    });
+                    context.SaveChanges();
+                    Session["value"] = null;
+                }
             }
             return Json("", JsonRequestBehavior.AllowGet);
         }
