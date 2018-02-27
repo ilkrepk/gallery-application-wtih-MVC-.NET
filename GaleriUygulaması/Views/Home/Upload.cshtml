@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Dosya Yükleme";
+}
+<style>
+    .bar {
+        background-color: #54c7ed;
+        height: 40px;
+    }
+
+    #fileList,#dosya {
+        padding: 20px;
+        padding-top: 15;
+        padding-bottom: 2px;
+        background-color: #c0ebbf;
+        border-radius: 20px;
+    }
+</style>
+<script src="~/Scripts/jquery-ui.js"></script>
+<script src="~/Scripts/jquery.fileupload.js"></script>
+<script src="~/Scripts/jquery.iframe-transport.js"></script>
+
+<div class="row" style="margin-top:15px">
+    <div class="col-md-3">
+        <input id="fileupload" type="file" multiple="multiple" />
+    </div>
+    <button id="btnUpload" class="btn btn-success" style="float:right">Dosyaları Yükle</button>
+    <br />
+    <hr />
+</div>
+<div class="row">
+    <h5>Dosyaların Yüklemesi</h5>
+    <div id="dosya">
+        <div class="progress">
+            <div id="overBar" class="bar" style="width:0%"></div>
+        </div>
+    </div>
+    <h5 id="toplamDosyaBoyutu"></h5>
+</div>
+<div class="row">
+    <div id="fileList" class="hidden">
+       
+    </div>
+</div>
+<script>
+    var barCount = 1;
+    $("#fileupload").fileupload({
+        dataType: "json",
+        url: "/home/fileupload",
+        limitConCurrentUploads: 1,
+        sequentialUploads: true,
+        progressInterval: 100,
+        maxChunkSize: 10000,
+        add: function (e, data) {
+            $("#fileList").removeClass("hidden");
+            $("#fileList").append("<h5>Dosya Adı: " + data.files[0].name + "</h5>");
+            $("#fileList").append("<h5>Dosya Boyutu: " + okunabilirDosyaBoyutu(data.files[0].size) + "</h5>");
+            $("#fileList").append('<div class="progress"><div id="uploadingFile" class="bar" style="width:0%;"></div></div><hr/>');
+            $("#btnUpload").click(function () {
+                data.submit();
+            })
+            var yuzde = parseInt((data.loaded / data.total) * 100);
+        },
+        done: function (e, data) {
+            $(".bar:eq(" + barCount + ")").append("Tamamlandı");
+            barCount++;
+        },
+        progressall: function (e, data) {
+            var yuzde = parseInt((data.loaded / data.total) * 100);
+            $("#overBar").css("width", yuzde + '%');
+            $("#toplamDosyaBoyutu").html("Toplam Dosya Boyutyu: " + okunabilirDosyaBoyutu(data.total));
+        },
+        progress: function (e, data) {
+            var yuzde = parseInt((data.loaded / data.total) * 100);
+            $(".bar:eq(" + barCount + ")").css("width", yuzde + '%');
+        }
+    });
+    function okunabilirDosyaBoyutu(DosyaBoyutu) {
+        var i = -1;
+        var birimler = [' kB', ' MB', ' GB', ' TB', 'PB', 'EB', 'ZB', 'YB'];
+        do {
+            DosyaBoyutu = DosyaBoyutu / 1024;
+            i++;
+        } while (DosyaBoyutu > 1024);
+
+        return Math.max(DosyaBoyutu, 0.1).toFixed(1) + birimler[i];
+    };
+</script>
