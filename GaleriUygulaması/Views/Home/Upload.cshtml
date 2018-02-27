@@ -58,7 +58,6 @@
             $("#btnUpload").click(function () {
                 data.submit();
             })
-            var yuzde = parseInt((data.loaded / data.total) * 100);
         },
         done: function (e, data) {
             $(".bar:eq(" + barCount + ")").append("Tamamlandı");

@@ -42,7 +42,7 @@ namespace GaleriUygulaması.Controllers
                     Session["value"] = ByteBirlestir((byte[])Session["value"], value);
                 }
             }
-            if (1000 > file.ContentLength)
+            if (10000 > file.ContentLength)
             {
                 context.Dosya.Add(new Dosya
                 {

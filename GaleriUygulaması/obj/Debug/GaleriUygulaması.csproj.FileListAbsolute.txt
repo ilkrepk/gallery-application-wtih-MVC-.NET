@@ -28,3 +28,33 @@ c:\users\ilker\onedrive\belgeler\visual studio 2013\Projects\GaleriUygulaması\G
 c:\users\ilker\onedrive\belgeler\visual studio 2013\Projects\GaleriUygulaması\GaleriUygulaması\bin\EntityFramework.SqlServer.dll
 c:\users\ilker\onedrive\belgeler\visual studio 2013\Projects\GaleriUygulaması\GaleriUygulaması\bin\EntityFramework.xml
 c:\users\ilker\onedrive\belgeler\visual studio 2013\Projects\GaleriUygulaması\GaleriUygulaması\bin\EntityFramework.SqlServer.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\GaleriUygulaması.dll.config
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\GaleriUygulaması.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\GaleriUygulaması.pdb
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\Antlr3.Runtime.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\EntityFramework.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\EntityFramework.SqlServer.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\Newtonsoft.Json.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Helpers.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Mvc.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Optimization.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Razor.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.WebPages.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.WebPages.Razor.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\WebGrease.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\EntityFramework.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\EntityFramework.SqlServer.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Helpers.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Mvc.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Optimization.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.Razor.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.WebPages.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\System.Web.WebPages.Razor.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\Antlr3.Runtime.pdb
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\bin\Newtonsoft.Json.xml
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\obj\Debug\GaleriUygulaması.csprojResolveAssemblyReference.cache
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\obj\Debug\GaleriUygulaması.dll
+C:\Users\ilker\OneDrive\Belgeler\gallery-application-wtih-MVC-.NET\GaleriUygulaması\obj\Debug\GaleriUygulaması.pdb

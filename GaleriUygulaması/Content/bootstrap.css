@@ -315,7 +315,6 @@ body {
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
-  background-color: #ffffff;
 }
 
 input,
@@ -5741,10 +5740,12 @@ body.modal-open,
 @media screen and (min-width: 768px) {
   .modal-dialog {
     right: auto;
+    max-width:1200px;
     left: 50%;
-    width: 600px;
     padding-top: 30px;
     padding-bottom: 30px;
+    max-height:1000px;
+
   }
   .modal-content {
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);

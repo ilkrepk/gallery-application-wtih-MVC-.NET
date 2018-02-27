@@ -1,31 +1,252 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/Settings/file-list.css" rel="stylesheet" />
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Content/Settings/file-edit.css" rel="stylesheet" />
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgBlue">
+                    <a href="#fileEditModal" data-toggle="modal"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-word-o bgBlue" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-word-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgOrange">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-powerpoint-o bgOrange" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-powerpoint-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgGreen">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-excel-o bgGreen" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-excel-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgRed">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-pdf-o bgRed" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-pdf-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgAqua">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-sound-o bgAqua" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-sound-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgYellow">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-image-o bgYellow" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-image-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgPurple">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-archive-o bgPurple" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-archive-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgVideo">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-movie-o bgVideo" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-movie-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgText">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-text-o bgText" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-text-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+            <div class="card hovercard" style="border-radius:8px;">
+                <div class="cardheader bgCode">
+                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
+                </div>
+                <div class="avatar">
+                    <i class="fa fa-file-code-o bgCode" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
+                </div>
+                <div class="info">
+                    <div class="title">
+                    </div>
+                    <div class="desc"><span>Dosya Adi</span></div>
+                </div>
+                <div class="bottom">
+                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
+                    <i class="fa fa-file-code-o pull-right" style="margin-bottom:5px;"></i>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div id="fileEditModal" class="modal img-modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 modal-image">
+                            <img class="img-responsive " src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/12592764_10208847476972030_7225651548466484715_n.jpg?oh=25bd12c57ec648632a688dd3e9c168dd&oe=5B076A17">
+                        </div>
+                        <div class="col-md-6 modal-meta">
+                            <div class="modal-meta-top">
+                                <button type="button" class="close btn btn-secondary" data-dismiss="modal">X</button>
+                               
+                                <div class="form-area">
+                                    <form role="form">
+                                        <br style="clear:both">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                                        </div>
+
+                                        <button type="button" id="submit" name="submit" class="btn btn-primary">Kaydet</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
