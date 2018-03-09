@@ -1,4 +1,5 @@
 ﻿using GaleriUygulaması.Models;
+using GaleriUygulaması.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,7 +40,7 @@ namespace GaleriUygulaması.Controllers
                 }
                 else
                 {
-                    Session["value"] = ByteBirlestir((byte[])Session["value"], value);
+                    Session["value"] = UtilityManager.ByteBirlestir((byte[])Session["value"], value);
                 }
                 if (10000 > file.ContentLength)
                 {
@@ -49,6 +50,9 @@ namespace GaleriUygulaması.Controllers
                         DosyaAdi = file.FileName,
                         DosyaBoyutu = ((byte[])Session["value"]).Length.ToString(),
                         DosyaTipi = file.ContentType,
+                        Ikon = UtilityManager.SetIcon(file.ContentType),
+                        BoyutKisaltma = UtilityManager.ByteToString(((byte[])Session["value"]).Length),
+                        Renk = UtilityManager.SetClass(file.ContentType),
                         KayitTarihi = DateTime.Now,
 
                     });
@@ -58,13 +62,21 @@ namespace GaleriUygulaması.Controllers
             }
             return Json("", JsonRequestBehavior.AllowGet);
         }
-        static byte[] ByteBirlestir(byte[] arrayA, byte[] arrayB)
-        {
-            byte[] outputBytes = new byte[arrayA.Length + arrayB.Length];
-            Buffer.BlockCopy(arrayA, 0, outputBytes, 0, arrayA.Length);
-            Buffer.BlockCopy(arrayB, 0, outputBytes, arrayA.Length, arrayB.Length);
-            return outputBytes;
-        }
 
+        public ActionResult GetFileDetailById(int id)
+        {
+            var file = (from d in context.Dosya
+                        where d.Id == id
+                        select new
+                        {
+                            d.BoyutKisaltma,
+                            d.DosyaAdi,
+                            d.DosyaTipi,
+                            UrlYolu = "/home/fileview/" + d.Id + "/" + d.Baslik,
+                            d.Baslik,
+                            d.Aciklama,
+                        }).ToList();
+            return Json(file[0], JsonRequestBehavior.AllowGet);
+        }
     }
 }

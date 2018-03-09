@@ -1,252 +1,136 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@using GaleriUygulaması.Models
+@{
+    GaleriEntities context = new GaleriEntities();
+    var Galeri = (from G in context.Dosya
+                  select new
+                  {
+                      G.Id,
+                      G.BoyutKisaltma,
+                      G.DosyaAdi,
+                      G.DosyaTipi,
+                      G.Ikon,
+                      G.Renk,
+                  }).ToList();
+}
 <link href="~/Content/Settings/file-list.css" rel="stylesheet" />
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="~/Content/Settings/file-edit.css" rel="stylesheet" />
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgBlue">
-                    <a href="#fileEditModal" data-toggle="modal"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-word-o bgBlue" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
+        @for (int i = 0; i < Galeri.Count; i++)
+        {
+            <div class="col-lg-3 col-sm-6">
+                <div class="card hovercard" style="border-radius:8px;">
+                    <div class="cardheader @Galeri[i].Renk">
+                        <a href="#fileEditModal" onclick="funcGetFileDetail(@Galeri[i].Id)" data-toggle="modal"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
                     </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-word-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-                
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgOrange">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-powerpoint-o bgOrange" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
+                    <div class="avatar">
+                        <i class="@Galeri[i].Ikon @Galeri[i].Renk" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
                     </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-powerpoint-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgGreen">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-excel-o bgGreen" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
+                    <div class="info">
+                        <div class="title">
+                        </div>
+                        <div class="desc"><span>@Galeri[i].DosyaAdi</span></div>
                     </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-excel-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgRed">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-pdf-o bgRed" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
+                    <div class="bottom">
+                        <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;">  @Galeri[i].BoyutKisaltma</i>
+                        <i class="@Galeri[i].Ikon pull-right" style="margin-bottom:5px;"></i>
                     </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
                 </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-pdf-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
             </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgAqua">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-sound-o bgAqua" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
-                    </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-sound-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgYellow">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-image-o bgYellow" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
-                    </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-image-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgPurple">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-archive-o bgPurple" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
-                    </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-archive-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgVideo">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-movie-o bgVideo" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
-                    </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-movie-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgText">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-text-o bgText" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
-                    </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-text-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6">
-            <div class="card hovercard" style="border-radius:8px;">
-                <div class="cardheader bgCode">
-                    <a href="#"><i class="fa fa-edit pull-right" style="font-size:20px; margin:5px 5px; color:#ffffff"></i></a>
-                </div>
-                <div class="avatar">
-                    <i class="fa fa-file-code-o bgCode" style="font-size:85px; color:#ffffff; border-radius:5px"></i>
-                </div>
-                <div class="info">
-                    <div class="title">
-                    </div>
-                    <div class="desc"><span>Dosya Adi</span></div>
-                </div>
-                <div class="bottom">
-                    <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;"> 20 Mb</i>
-                    <i class="fa fa-file-code-o pull-right" style="margin-bottom:5px;"></i>
-                </div>
-
-            </div>
-        </div>
+        }
 
     </div>
-    <div id="fileEditModal" class="modal img-modal">
+    <div id="fileEditModal" class="modal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col-md-6 modal-image">
-                            <img class="img-responsive " src="https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/12592764_10208847476972030_7225651548466484715_n.jpg?oh=25bd12c57ec648632a688dd3e9c168dd&oe=5B076A17">
-                        </div>
-                        <div class="col-md-6 modal-meta">
-                            <div class="modal-meta-top">
-                                <button type="button" class="close btn btn-secondary" data-dismiss="modal">X</button>
-                               
-                                <div class="form-area">
-                                    <form role="form">
-                                        <br style="clear:both">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-                                        </div>
+                        <div class="col-md-8">
+                            <div class="file-content">
 
-                                        <button type="button" id="submit" name="submit" class="btn btn-primary">Kaydet</button>
-                                    </form>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-area" style="padding-top:15px; padding-right:15px;">
+                                <form role="form">
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-file-text"></i><span id="orjinalAdi"></span></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-hdd-o"></i> <span id="dosyaBoyutu"></span></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label"><i class="fa fa-file"></i><span id="dosyaTipi"></span></label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Url Yolu :</label>
+                                        <input id="urlYolu" disabled class="form-control has-success" style="font-size:20px;" value="https://scontent-sof1-1.xx.fbcdn.net/v/t1.0-9/12592764_10208847476972030_7225651548466484715_n.jpg?oh=25bd12c57ec648632a688dd3e9c168dd&oe=5B076A17" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Başlık :</label>
+                                        <input id="dosyaBaslik" type="text" class="form-control" placeholder="başlık">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Açıklama :</label>
+                                        <textarea id="dosyaAciklama" class="form-control" type="textarea" placeholder="açıklama"></textarea>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                <div class="modal-footer">
+                    <div class="pull-left">
+                        <a id="btnOnizle" href="#" target="_blank" class="btn btn-warning"><i class="fa fa-eye"></i> Önizle</a>
+                        <a id="btnIndır" href="#" target="_blank" class="btn btn-default"><i class="fa fa-download"></i> İndir</a>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Kapat</button>
+                        <button type="button" class="btn btn-success" onclick="funcUpdateFile()"><i class="fa fa-check"></i> Kaydet</button>
+                    </div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </div>
+<script>
+    var tempDosyaId = 0;
+    function funcGetFileDetail(e) {
+        tempDosyaId = e;
+        $.ajax({
+            url: "/home/GetFileDetailById?Id=" + e,
+            success: function (e) {
+                $("#orjinalAdi").html(e.DosyaAdi);
+                $("#dosyaBoyutu").html(e.BoyutKisaltma);
+                $("#dosyaTipi").html(e.DosyaTipi);
+                $("#urlYolu").val(e.UrlYolu);
+                $("#dosyaBaslik").val(e.Baslik);
+                $("#dosyaAciklama").val(e.Aciklama);
+                $("#btnOnizle").attr("href", e.UrlYolu);
+                if (e.DosyaTipi.indexOf("image") != -1) {
+                    $(".file-content").html('<img class="img-responsive" src=' + e.UrlYolu + '/>');
+                } else if (e.DosyaTipi.indexOf("video") != -1 || e.DosyaTipi.indexOf("audio") != -1 || e.DosyaTipi.indexOf("pdf") != -1) {
+                    $(".file-content").html('<iframe src=' + e.UrlYolu + ' width="550" height="450"></iframe>')
+                }
+                else {
+                    $(".file-content").html('<i class="fa fa-file-o" style="  font-size: 400px;padding: 50px;"></i>')
+                }
+            }
+        })
+    }
+    function funcUpdateFile() {
+        $.ajax({
+            url: "/home/UpdateFile",
+            data: { Id: tempDosyaId, Baslik: $("#dosyaBaslik").val(), Aciklama: $("#dosyaAciklama").val() },
+            success: function (e) {
+                if (e == "E") {
+                    $("#fileEditModal").modal("hide");
+                }
+            }
+        })
+    }
+</script>
