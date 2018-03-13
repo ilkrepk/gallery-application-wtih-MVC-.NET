@@ -8,7 +8,7 @@ namespace GaleriUygulaması.Utilities
     public class UtilityManager
     {
         static string[] dosyaTipleri = { "excel", "sheet", "pdf", "word", "presentation","powerpoint", "image", "text", "audio", "video", "code", "compressed" };
-        static string[] dosyaIconlar = { "fa fa-file-excel-o", "fa fa-file-excel-o", "fa fa-file-word-o", "fa fa-file-powerpoint-o","fa fa-file-powerpoint-o", "fa fa-file-archive-o", "fa fa-file-image-o", "fa fa-file-text-o", "fa fa-file-sound-o", "fa fa-file-movie-o", "fa fa-file-code-o", "fa fa-file-archive-o" };
+        static string[] dosyaIconlar = { "fa fa-file-excel-o", "fa fa-file-excel-o", "fa fa-file-pdf-o", "fa fa-file-word-o", "fa fa-file-powerpoint-o", "fa fa-file-powerpoint-o", "fa fa-file-image-o", "fa fa-file-text-o", "fa fa-file-sound-o", "fa fa-file-movie-o", "fa fa-file-code-o", "fa fa-file-archive-o" };
         static string[] dosyaclases = { "bgGreen", "bgGreen", "bgRed", "bgBlue", "bgOrange", "bgOrange", "bgYellow", "bgText", "bgAqua", "bgVideo", "bgCode", "bgPurple" };
         public static byte[] ByteBirlestir(byte[] arrayA, byte[] arrayB)
         {

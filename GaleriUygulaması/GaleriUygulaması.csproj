@@ -143,6 +143,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Galeri.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\UpFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\UtilityManager.cs" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\Navbar.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Galeri.edmx">
@@ -237,6 +239,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Upload.cshtml" />
+    <Content Include="Views\Home\Galeri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

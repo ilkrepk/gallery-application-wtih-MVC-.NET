@@ -17,14 +17,22 @@ namespace GaleriUygulaması.Controllers
         {
             return View();
         }
-
-        public ActionResult Upload()
+        public ActionResult Galeri()
         {
             return View();
         }
-        public FileContentResult fileView()
+
+        public ActionResult Upload()
         {
-            var List = context.Dosya.ToList();
+            if (Session["value"] != null)
+            {
+                Response.Redirect("/");
+            }
+            return View();
+        }
+        public FileContentResult fileView(int id)
+        {
+            var List = context.Dosya.Where(p => p.Id == id).ToList();
             return new FileContentResult(List[0].Deger, List[0].DosyaTipi);
         }
 
@@ -72,11 +80,31 @@ namespace GaleriUygulaması.Controllers
                             d.BoyutKisaltma,
                             d.DosyaAdi,
                             d.DosyaTipi,
-                            UrlYolu = "/home/fileview/" + d.Id + "/" + d.Baslik,
+                            UrlYolu = "/home/fileview/" + d.Id,
                             d.Baslik,
                             d.Aciklama,
                         }).ToList();
             return Json(file[0], JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult UpdateFile(UpFile file)
+        {
+            try
+            {
+                var entity = context.Dosya.Where(p => p.Id == file.Id).SingleOrDefault();
+                if (entity != null)
+                {
+                    entity.Baslik = file.Baslik;
+                    entity.Aciklama = file.Aciklama;
+                    context.Entry(entity).State = System.Data.Entity.EntityState.Modified;
+                    context.SaveChanges();
+                }
+                return Json("E", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception)
+            {
+                return Json("H", JsonRequestBehavior.AllowGet);
+            }
+
         }
     }
 }
