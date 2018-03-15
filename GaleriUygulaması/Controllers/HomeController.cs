@@ -22,6 +22,17 @@ namespace GaleriUygulaması.Controllers
             return View();
         }
 
+        public ActionResult DeleteFile(int id)
+        {
+            var entity = context.Dosya.Where(p => p.Id == id).SingleOrDefault();
+            if (entity != null)
+            {
+                context.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+                //Response.Redirect("/Home");
+            }
+            return RedirectToAction("Galeri", "Home");
+        }
         public ActionResult Upload()
         {
             if (Session["value"] != null)

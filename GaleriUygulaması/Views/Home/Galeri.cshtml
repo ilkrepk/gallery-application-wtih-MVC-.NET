@@ -44,6 +44,7 @@
                     </div>
                     <div class="bottom">
                         <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;">@Galeri[i].BoyutKisaltma</i>
+                        <i class="fa fa-crosshairs pull-left" onclick="DeleteFile(@Galeri[i].Id)" style="margin-bottom:5px;">Sil</i>
                         <i class="@Galeri[i].Ikon pull-right" style="margin-bottom:5px;"></i>
                     </div>
                 </div>
@@ -136,6 +137,14 @@
                 if (e == "E") {
                     $("#fileEditModal").modal("hide");
                 }
+            }
+        })
+    }
+    function DeleteFile(DosyaId){
+        $.ajax({
+            url:"/home/DeleteFile?Id=" + DosyaId,
+            success: function(){
+                window.location.reload();
             }
         })
     }
