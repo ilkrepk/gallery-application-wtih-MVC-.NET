@@ -44,7 +44,6 @@
                     </div>
                     <div class="bottom">
                         <i class="fa fa-hdd-o pull-left" style="margin-bottom:5px;">@Galeri[i].BoyutKisaltma</i>
-                        <i class="fa fa-crosshairs pull-left" onclick="DeleteFile(@Galeri[i].Id)" style="margin-bottom:5px;">Sil</i>
                         <i class="@Galeri[i].Ikon pull-right" style="margin-bottom:5px;"></i>
                     </div>
                 </div>
@@ -93,7 +92,8 @@
                 </div>
                 <div class="modal-footer">
                     <div class="pull-left">
-                        <a id="btnOnizle" href="#" target="_blank" class="btn btn-warning"><i class="fa fa-eye"></i> Önizle</a>
+                        <a id="btnOnizle" href="#" target="_blank" class="btn btn-primary"><i class="fa fa-eye"></i> Önizle</a>
+                        <button type="button" class="btn btn-warning" onclick="DeleteFile()"><i class="fa fa-check"></i> Sil</button>
                     </div>
                     <div class="pull-right">
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-close"></i> Kapat</button>
@@ -140,9 +140,9 @@
             }
         })
     }
-    function DeleteFile(DosyaId){
+    function DeleteFile(){
         $.ajax({
-            url:"/home/DeleteFile?Id=" + DosyaId,
+            url:"/home/DeleteFile?Id=" + tempDosyaId,
             success: function(){
                 window.location.reload();
             }
